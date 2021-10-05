@@ -100,7 +100,14 @@ class Menu:
       elif opcionU == 3:
         print(' Escogiste la opcion 3')
         indice_nodo = int(input(' Digite el indice del Nodo a Buscar: '))
+        self.lista_principal.remove(indice_nodo)
         nodo_buscado2 = self.lista_principal.get_2(indice_nodo)
+        
+        if nodo_buscado2 != None:
+          valor_cuadrado = math.pow(nodo_buscado2.value,2)
+          self.lista_principal.append_2(valor_cuadrado)
+        else:
+          print('No se pudo realizar el proceso')
         
         regresoMenu = input(Fore.LIGHTCYAN_EX+"Desea Realizar otra opción del menu (Si,No) \nTu respuesta: "+Fore.RESET)
         self.mostrarMenu2(regresoMenu)
@@ -113,6 +120,12 @@ class Menu:
       elif opcionU == 5:
         print(' Escogiste la opcion 5')
         print(' La lista invertida es: ')
+        self.lista_principal.reverse()
+        self.lista_principal.show_elements()
+
+        regresoMenu = input(Fore.LIGHTCYAN_EX+"Desea Realizar otra opción del menu (Si,No) \nTu respuesta: "+Fore.RESET)
+        self.mostrarMenu2(regresoMenu)
+        bandera = False
   def diligenciar_formulario(self):
     self.mostrar_menu()
     respuesta = int(input(' tu respuesta: '))

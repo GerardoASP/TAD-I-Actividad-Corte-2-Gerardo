@@ -226,3 +226,15 @@ class Single_linked_list:
       return current_node
     else:
       return None
+  
+  #Metodo 15:Invertir Lista
+  def reverse(self):
+    pre = sig = None
+    i = self.head
+
+    while i:
+      sig = i.next
+      i.next = pre
+      pre = i
+      i = sig
+    self.head = pre
