@@ -88,35 +88,20 @@ class Single_linked_list:
       return print(current_node.value)
   
   #metodo #6: Consultar el valor del nodo a partir del indice que ingresa el usuario
-  def get(self):
-    while True:
-      try:
-        index = int(input('   Ingresa el indice: '))
-        if index == self.length-1:
-          print(self.tail.value) #cualquiera de las dos formas sirve para mostrar la cola
-          return self.tail
-          break
-        if index == 0:
-          print(self.head.value)
-          return self.head
-          self.remove(index)
-          break
-        elif not(index >= self.length or index < 0):
-          current_node = self.head
-          visit_node_count = 0
-          while visit_node_count != index:
-            current_node = current_node.next
-            visit_node_count += 1
-          print(current_node.value)
-          return current_node
-          self.remove(index)
-          break
-        else:
-          return None
-          break
-        self.show_elements()
-      except ValueError:
-        print('   ERROR,se esperaba un valor numerico')
+  def get(self, index):
+    if index == self.length -1:
+      return self.tail
+    if index == 0:
+      return self.head
+    elif not(index >= self.length or index <0):
+      current_node = self.head
+      visit_node_count = 0
+      while visit_node_count != index:
+        current_node = current_node.next
+        visit_node_count += 1
+      return current_node
+    else:
+      return None
   
   #metodo 7:actualizar el valor que contiene el nodo consultado
   def update(self,index,value):
@@ -206,28 +191,7 @@ class Single_linked_list:
       self.tail = new_node
     self.length += 1
   
-  #Metodo 14: Consultar Nodo por Indice
-  def get_2(self,index):
-    if index == self.length -1:
-      #print(self.tail.value) #cualquiera de los dos
-      return self.tail
-    
-    if index == 0:
-      #print(self.head.value)
-      return self.head
-    
-    elif not(index >= self.length or index < 0):
-      current_node = self.head
-      visit_node_count = 0
-      while visit_node_count != index:
-        current_node = current_node.next
-        visit_node_count += 1
-      #print(current_node.value)
-      return current_node
-    else:
-      return None
-  
-  #Metodo 15:Invertir Lista
+  #Metodo 14:Invertir Lista
   def reverse(self):
     pre = sig = None
     i = self.head

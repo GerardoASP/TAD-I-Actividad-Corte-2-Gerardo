@@ -78,11 +78,12 @@ class Menu:
       elif opcionU == 2:
         print(' Escogiste La opcion 2 del menu')
         indice_nodo = int(input(' Digite el indice del Nodo a Buscar: '))
-        nodo_buscado = self.lista_principal.get_2(indice_nodo)
+        nodo_buscado = self.lista_principal.get(indice_nodo)
 
         if nodo_buscado != None:
           valor_raiz_cuadrada = math.sqrt(nodo_buscado.value)
           self.lista_principal.prepend(valor_raiz_cuadrada)
+          print(' Proceso Completado')
         else:
           print('No se pudo realizar el proceso')
         
@@ -101,11 +102,12 @@ class Menu:
         print(' Escogiste la opcion 3')
         indice_nodo = int(input(' Digite el indice del Nodo a Buscar: '))
         self.lista_principal.remove(indice_nodo)
-        nodo_buscado2 = self.lista_principal.get_2(indice_nodo)
+        nodo_buscado2 = self.lista_principal.get(indice_nodo)
         
         if nodo_buscado2 != None:
           valor_cuadrado = math.pow(nodo_buscado2.value,2)
           self.lista_principal.append_2(valor_cuadrado)
+          print(' Proceso Completado')
         else:
           print('No se pudo realizar el proceso')
         
